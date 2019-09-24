@@ -1,5 +1,33 @@
 #include "monty.h"
 
+void exec_loop(buf_struct *a)
+{
+	stack_t *stack;
+	int line_n = 1, i = 0;
+
+        while (a->list_cmd[i])
+        {
+		split_spaces(a->list_cmd[i], a);
+		printf("token command = %s\n", a->tok_cmd[0]);
+		if (strcmp(a->tok_cmd[0], "push") == 0)
+		{
+			push(&stack, atoi(a->tok_cmd[1]), line_n);
+			line_n++;
+		}
+		else
+		{
+			if (get_op_func(a->tok_cmd[0]) == NULL)
+			{
+				i++;
+				continue;
+			}
+			(*get_op_func(a->tok_cmd[0]))(&stack, line_n);
+			line_n++;
+		}
+		i++;
+	}
+}
+
 /**
  * get_op_func - selects the correct function to perform
  * @s: name of function
@@ -26,4 +54,3 @@ void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number)
 	}
 	return (NULL);
 }
-

@@ -7,6 +7,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <unistd.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -58,12 +59,15 @@ typedef struct buf_struct
 /* Execute functions */
 
 void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number);
+void exec_loop(buf_struct *a);
 
 /* End of execute functions */
 
 /* monty functions */
-
-stack_t *push(stack_t **head, int n);
+char **split_spaces(char *buff, buf_struct *a);
+char **split_newline(buf_struct *a);
+buf_struct *make_struct(char *argv[]);
+stack_t *push(stack_t **head, int n, unsigned int line_n);
 void pall(stack_t **h, unsigned int line_n);
 void pint(stack_t **h, unsigned int line_n);
 void pop(stack_t **h, unsigned int line_n);

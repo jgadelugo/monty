@@ -4,7 +4,7 @@
  * @a: Global struct for buffers.
  * Return: Tokenized list of commands.
  */
-char **split_newline(buf_struct a)
+char **split_newline(buf_struct *a)
 {
 	char delim[] = "\n";
 	char *token;
@@ -28,7 +28,7 @@ char **split_newline(buf_struct a)
  * @a: Global struct for buffers.
  * Return: Tokenized command.
  */
-char **split_spaces(char *buff, buf_struct a)
+char **split_spaces(char *buff, buf_struct *a)
 {
 	char delim[] = " ";
 	char *token;

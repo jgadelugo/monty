@@ -23,7 +23,8 @@ buf_struct *make_struct(char *argv[])
  */
 int main(int argc, char *argv[])
 {
-	int fd, bytes;
+	int fd;
+	buf_struct *a;
 
 	a = make_struct(argv);
 
@@ -38,7 +39,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	bytes = read(fd, a->read_buff, 1000);
+	read(fd, a->read_buff, 1000);
 	split_newline(a);
 	exec_loop(a);
 
