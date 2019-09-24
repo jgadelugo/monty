@@ -1,6 +1,12 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <strings.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -12,9 +18,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -27,8 +33,23 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+/**
+ * struct buf_struct - Global buffers.
+ * @buff: Buffer for read.
+ * @buff_array: Tokenized read buffer.
+ * @argv: Arguments from command line.
+ *
+ * Description: - Buffers used globally throughout files.
+ */
+typedef struct buf_struct
+{
+	char buff[1000];
+	char *buff_array[1000];
+	char **argv;
+} buf_struct;
 
 #endif /*MONTY_H*/
