@@ -64,9 +64,9 @@ int (*get_op_func(char *s))(stack_t **stack, unsigned int line_number);
 /* monty functions */
 
 stack_t *push(stack_t **head, int n);
-int pall(stack_t *h);
-int pint(stack_t *h);
-int pop(stack_t **head);
+int pall(stack_t **h, unsigned int line_n);
+int pint(stack_t **h, unsigned int line_n);
+int pop(stack_t **h, unsigned int line_n);
 
 /* end of monty functions */
 
