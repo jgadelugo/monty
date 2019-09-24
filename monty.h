@@ -41,6 +41,7 @@ typedef struct instruction_s
  * struct buf_struct - Global buffers.
  * @buff: Buffer for read.
  * @buff_array: Tokenized read buffer.
+ * @buff_command: Tokenize each token from previous split based on spaces.
  * @argv: Arguments from command line.
  *
  * Description: - Buffers used globally throughout files.
@@ -49,6 +50,7 @@ typedef struct buf_struct
 {
 	char buff[1000];
 	char *buff_array[1000];
+	char *buff_command[1000];
 	char **argv;
 } buf_struct;
 
