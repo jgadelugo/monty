@@ -34,6 +34,8 @@ stack_t *push(stack_t **head, int n)
  */
 int pall(stack_t **stack, unsigned int line_n)
 {
+	stack_t *h = *stack;
+
 	if (!*stack)
 		return (-1);
 	for (; h; h = h->next)
@@ -47,6 +49,8 @@ int pall(stack_t **stack, unsigned int line_n)
  */
 int pint(stack_t **stack, unsigned int line_n)
 {
+	stack_t *h = *stack;
+
 	if (!*stack)
 		return (-1);
 	printf("%d\n", h->n);
@@ -61,11 +65,11 @@ int pint(stack_t **stack, unsigned int line_n)
  */
 int pop(stack_t **stack, unsigned int line_n)
 {
-	stack_t *delete = *head;
+	stack_t *delete = *stack;
 
-	if (*head == NULL)
+	if (*stack == NULL)
 		return (-1);
-	*head = delete->next;
+	*stack = delete->next;
 	free(delete);
 	return(1);
 }
