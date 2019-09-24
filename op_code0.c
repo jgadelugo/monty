@@ -50,3 +50,18 @@ void pint(stack_t *h)
 	printf("%d\n", h->n);
 }
 
+/**
+ * pop - removes first node of a linked list
+ * @head: first node of linked list
+ * Return: 1 if succesfull -1 if failed
+ */
+int pop(stack_t **head)
+{
+	stack_t *delete = *head;
+	
+	if (*head == NULL)
+		return (-1);
+	*head = delete->next;
+	free(delete);
+	return(1);
+}

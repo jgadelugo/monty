@@ -65,6 +65,7 @@ int (*get_op_func(char *s, int n))(int n);
 stack_t *push(stack_t **head, int n);
 size_t pall(stack_t *h);
 void pint(stack_t *h);
+int pop(stack_t **head);
 
 /* end of monty functions */
 
