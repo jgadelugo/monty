@@ -32,7 +32,7 @@ stack_t *push(stack_t **head, int n)
  * @h: start of doubly linked list
  * Return: the number of nodes
  */
-size_t pal(stack_t *h)
+size_t pall(stack_t *h)
 {
 	size_t size = 0;
 
@@ -40,3 +40,13 @@ size_t pal(stack_t *h)
 		printf("%d\n", h->n);
 	return (size);
 }
+
+/**
+ * pint - prints first node of linked list
+ * @h: first node of linked list
+ */
+void pint(stack_t *h)
+{
+	printf("%d\n", h->n);
+}
+

@@ -52,8 +52,12 @@ typedef struct buf_struct
 	char **argv;
 } buf_struct;
 
-stack_t *push(stack_t **head, int n);
-size_t pal(stack_t *h);
+/* monty functions */
 
+stack_t *push(stack_t **head, int n);
+size_t pall(stack_t *h);
+void pint(stack_t *h);
+
+/* end of monty functions */
 
 #endif /*MONTY_H*/
