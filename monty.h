@@ -52,6 +52,12 @@ typedef struct buf_struct
 	char **argv;
 } buf_struct;
 
+/* Execute functions */
+
+int (*get_op_func(char *s, int n))(int n);
+
+/* End of execute functions */
+
 /* monty functions */
 
 stack_t *push(stack_t **head, int n);
