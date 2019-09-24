@@ -54,9 +54,10 @@ typedef struct buf_struct
 	char **argv;
 } buf_struct;
 
+
 /* Execute functions */
 
-int (*get_op_func(char *s, int n))(int n);
+int (*get_op_func(char *s))(stack_t **stack, unsigned int line_number);
 
 /* End of execute functions */
 
