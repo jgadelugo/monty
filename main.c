@@ -9,8 +9,9 @@ buf_struct *make_struct(char *argv[])
 	static buf_struct a;
 
 	a.argv = argv;
-	memset(a.buff, 0, sizeof(a.buff));
-	memset(a.buff_array, 0, sizeof(a.buff_array));
+	memset(a.read_buff, 0, sizeof(a.read_buff));
+	memset(a.list_cmd, 0, sizeof(a.list_cmd));
+	memset(a.tok_cmd, 0, sizeof(a.tok_cmd));
 
 	return (&a);
 }
@@ -31,13 +32,13 @@ int main(int argc, char *argv[])
 		printf("USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	if ((fd = open(filename, O_RDWR)) == -1)
+	if ((fd = open(argv[1], O_RDONLY)) == -1)
 	{
 		printf("Error: Can't open file %s", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 
-	bytes = read(fd, a->buff, 1000);
+	bytes = read(fd, a->read_buff, 1000);
 	split_newline(a);
 	exec_loop(a);
 
