@@ -6,7 +6,7 @@
  * @n: value of n
  * Return: pointer to function
  */
-int (*get_op_func(char *s))(stack_t **stack, unsigned int line_number)
+void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number)
 {
 	instruction_t cmd[] = {
 		{"pall", pall},
@@ -16,13 +16,14 @@ int (*get_op_func(char *s))(stack_t **stack, unsigned int line_number)
 	};
 	int i = 0;
 
-	while (cmd[i].op)
+	while (cmd[i].opcode)
 	{
 		if (strcmp(s, cmd[i].opcode) == 0)
 		{
-			return(ops[i].f);
+			return (cmd[i].f);
 		}
 		i++;
 	}
-	return (NULL)
+	return (NULL);
 }
+
