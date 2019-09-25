@@ -33,6 +33,7 @@ char **split_spaces(char *buff, buf_struct *a)
 	char delim[] = " ";
 	char *token;
 	int i = 0;
+
 	token = strtok(buff, delim);
 	while (token != NULL)
 	{
