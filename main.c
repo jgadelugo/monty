@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 	}
 	if ((fd = open(argv[1], O_RDONLY)) == -1)
 	{
-		printf("Error: Can't open file %s", argv[1]);
+		printf("Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 
