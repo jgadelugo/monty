@@ -5,7 +5,6 @@
  * push - adds a new node to the beginning of the linked list
  * @head: beginning of linked list
  * @n: value of new node
- * @line_n: the line number
  * Return: the new node that was added
  */
 stack_t *push(stack_t **head, int n)

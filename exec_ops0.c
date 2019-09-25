@@ -18,7 +18,7 @@ void exec_loop(buf_struct *a)
 				a->tok_cmd[1] = "r";
 			if ((strcmp(a->tok_cmd[1], "0") != 0 && atoi(a->tok_cmd[1]) == 0))
 			{
-				printf("L%d: usage: push integer\n", line_n);
+				fprintf(stderr, "L%d: usage: push integer\n", line_n);
 				exit(EXIT_FAILURE);
 			}
 			else
@@ -29,7 +29,7 @@ void exec_loop(buf_struct *a)
 		{
 			if (get_op_func(a->tok_cmd[0]) == NULL)
 			{
-				printf("L%d: unknown instruction %s\n", line_n, a->tok_cmd[0]);
+				fprintf(stderr, "L%d: unknown instruction %s\n", line_n, a->tok_cmd[0]);
 				exit(EXIT_FAILURE);
 				i++;
 				continue;
