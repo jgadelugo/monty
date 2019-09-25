@@ -13,8 +13,10 @@ stack_t *push(stack_t **head, int n)
 
 	new = malloc(sizeof(stack_t));
 	if (!new)
-		return (NULL);
-
+	{
+		fprintf("Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
 	new->n = n;
 	new->next = *head;
 	new->prev = NULL;
