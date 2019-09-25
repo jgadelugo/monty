@@ -42,7 +42,7 @@ void pall(stack_t **stack, unsigned int line_n)
 
 	if (!stack)
 	{
-		fprintf(stderr, "L%d: can't pall, stack empty", line_n);
+		fprintf(stderr, "L%d: can't pall, stack empty\n", line_n);
 		exit(EXIT_FAILURE);
 	}
 	for (; h; h = h->next)
@@ -60,7 +60,7 @@ void pint(stack_t **stack, unsigned int line_n)
 
 	if (!h)
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty", line_n);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_n);
 		exit(EXIT_FAILURE);
 	}
 	fprintf(stdout, "%d\n", h->n);
@@ -78,7 +78,7 @@ void pop(stack_t **stack, unsigned int line_n)
 
 	if (!delete)
 	{
-		fprintf(stderr, "L%d: can't pop an empty stack", line_n);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_n);
 		exit(EXIT_FAILURE);
 	}
 	*stack = delete->next;
@@ -94,8 +94,12 @@ void swap(stack_t **stack, unsigned int line_n)
 {
 	int hold = (*stack)->n;
 
-	if (line_n)
-		line_n = line_n;
+	if (!(*stack) || !(*stack)->next)
+	{
+		free_stack(*stack);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_n);
+		exit(EXIT_FAILURE);
+	}
 	(*stack)->n = (*stack)->next->n;
 	(*stack)->next->n = hold;
 }
