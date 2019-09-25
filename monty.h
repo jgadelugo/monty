@@ -49,7 +49,7 @@ typedef struct instruction_s
  */
 typedef struct buf_struct
 {
-	char read_buff[1000];
+	char read_buff[4096];
 	char *list_cmd[1000];
 	char *tok_cmd[1000];
 	char **argv;

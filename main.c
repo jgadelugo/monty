@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	read(fd, a->read_buff, 1000);
+	read(fd, a->read_buff, 4096);
 	split_newline(a);
 	exec_loop(a);
 
