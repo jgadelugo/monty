@@ -41,6 +41,7 @@ char **split_spaces(char *buff, buf_struct *a)
 		token = strtok(NULL, delim);
 		i++;
 	}
+	a->tok_cmd[i] = NULL;
 	if (a->tok_cmd[0] == NULL)
 		return (NULL);
 	return (a->tok_cmd);
