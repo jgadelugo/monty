@@ -25,6 +25,7 @@ void exec_loop(buf_struct *a)
 		}
 		i++;
 	}
+	free_stack(stack);
 }
 
 /**
@@ -39,6 +40,7 @@ void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number)
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
+		{"swap", swap},
 		{NULL, NULL}
 	};
 	int i = 0;

@@ -4,7 +4,8 @@
 /**
  * push - adds a new node to the beginning of the linked list
  * @head: beginning of linked list
- * @n: Value for new node
+ * @n: value of new node
+ * @line_n: the line number
  * Return: the new node that was added
  */
 stack_t *push(stack_t **head, int n, unsigned int line_n)
@@ -32,8 +33,8 @@ stack_t *push(stack_t **head, int n, unsigned int line_n)
 
 /**
  * pall - prints doubly linked list
- * @h: start of doubly linked list
- * Return: the number of nodes
+ * @stack: start of doubly linked list
+ * @line_n: line number
  */
 void pall(stack_t **stack, unsigned int line_n)
 {
@@ -47,7 +48,8 @@ void pall(stack_t **stack, unsigned int line_n)
 
 /**
  * pint - prints first node of linked list
- * @h: first node of linked list
+ * @stack: first node of linked list
+ * @line_n: line number
  */
 void pint(stack_t **stack, unsigned int line_n)
 {
@@ -61,8 +63,8 @@ void pint(stack_t **stack, unsigned int line_n)
 
 /**
  * pop - removes first node of a linked list
- * @head: first node of linked list
- * Return: 1 if succesfull -1 if failed
+ * @stack: first node of linked list
+ * @line_n: line number
  */
 void pop(stack_t **stack, unsigned int line_n)
 {
@@ -72,4 +74,19 @@ void pop(stack_t **stack, unsigned int line_n)
                 line_n = line_n;
 	*stack = delete->next;
 	free(delete);
+}
+
+/**
+  * swap - swaps the top two elements of the stack
+  * @stack: first node of linked list
+  * @line_n: line number
+  */
+void swap(stack_t **stack, unsigned int line_n)
+{
+	int hold = (*stack)->n;
+
+	if (line_n)
+		line_n = line_n;
+	(*stack)->n = (*stack)->next->n;
+	(*stack)->next->n = hold;
 }
