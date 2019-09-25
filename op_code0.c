@@ -8,12 +8,9 @@
  * @line_n: the line number
  * Return: the new node that was added
  */
-stack_t *push(stack_t **head, int n, unsigned int line_n)
+stack_t *push(stack_t **head, int n)
 {
 	stack_t *new;
-
-	if (line_n)
-		line_n = line_n;
 
 	new = malloc(sizeof(stack_t));
 	if (!new)

@@ -22,7 +22,7 @@ void exec_loop(buf_struct *a)
 				exit(EXIT_FAILURE);
 			}
 			else
-				push(&stack, atoi(a->tok_cmd[1]), line_n);
+				push(&stack, atoi(a->tok_cmd[1]));
 			line_n++;
 		}
 		else

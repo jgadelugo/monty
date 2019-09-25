@@ -80,7 +80,7 @@ void free_stack(stack_t *head);
 
 /* monty functions */
 
-stack_t *push(stack_t **head, int n, unsigned int line_n);
+stack_t *push(stack_t **head, int n);
 void pall(stack_t **h, unsigned int line_n);
 void pint(stack_t **h, unsigned int line_n);
 void pop(stack_t **h, unsigned int line_n);
