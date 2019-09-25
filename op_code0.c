@@ -38,7 +38,7 @@ void pall(stack_t **stack, unsigned int line_n)
 	stack_t *h = *stack;
 
 	if (line_n)
-                line_n = line_n;
+		line_n = line_n;
 	for (; h; h = h->next)
 		printf("%d\n", h->n);
 }
@@ -53,7 +53,7 @@ void pint(stack_t **stack, unsigned int line_n)
 	stack_t *h = *stack;
 
 	if (line_n)
-                line_n = line_n;
+		line_n = line_n;
 	printf("%d\n", h->n);
 
 }
@@ -68,7 +68,7 @@ void pop(stack_t **stack, unsigned int line_n)
 	stack_t *delete = *stack;
 
 	if (line_n)
-                line_n = line_n;
+		line_n = line_n;
 	*stack = delete->next;
 	free(delete);
 }
