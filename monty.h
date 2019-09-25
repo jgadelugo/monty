@@ -63,10 +63,17 @@ void exec_loop(buf_struct *a);
 
 /* End of execute functions */
 
-/* monty functions */
+/* String functions */
+
 char **split_spaces(char *buff, buf_struct *a);
 char **split_newline(buf_struct *a);
 buf_struct *make_struct(char *argv[]);
+
+/*End of string functions */
+
+
+/* monty functions */
+
 stack_t *push(stack_t **head, int n, unsigned int line_n);
 void pall(stack_t **h, unsigned int line_n);
 void pint(stack_t **h, unsigned int line_n);

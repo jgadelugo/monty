@@ -2,13 +2,12 @@
 
 void exec_loop(buf_struct *a)
 {
-	stack_t *stack;
+	stack_t *stack = NULL;
 	int line_n = 1, i = 0;
-
+	
         while (a->list_cmd[i])
         {
 		split_spaces(a->list_cmd[i], a);
-		printf("token command = %s\n", a->tok_cmd[0]);
 		if (strcmp(a->tok_cmd[0], "push") == 0)
 		{
 			push(&stack, atoi(a->tok_cmd[1]), line_n);
