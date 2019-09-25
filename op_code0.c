@@ -41,7 +41,7 @@ void pall(stack_t **stack, unsigned int line_n)
 	if (!stack)
 		return;
 	for (; h; h = h->next)
-		printf("%d\n", h->n);
+		fprintf(stdout, "%d\n", h->n);
 }
 
 /**
@@ -55,7 +55,7 @@ void pint(stack_t **stack, unsigned int line_n)
 
 	if (line_n)
 		line_n = line_n;
-	printf("%d\n", h->n);
+	fprintf(stdout, "%d\n", h->n);
 
 }
 
