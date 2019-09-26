@@ -29,7 +29,7 @@ void exec_loop(buf_struct *a)
 			else
 				push(&stack, atoi(a->tok_cmd[1]));
 		}
-		else if (check && strcmp(status, str1) != 0)
+		else if (check)
 			queue(&stack, line_n);
 		else
 		{
