@@ -30,7 +30,7 @@ char **split_newline(buf_struct *a)
  */
 char **split_spaces(char *buff, buf_struct *a)
 {
-	char delim[] = " ";
+	char delim[] = " \t";
 	char *token;
 	int i = 0;
 
