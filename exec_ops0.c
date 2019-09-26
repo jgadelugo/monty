@@ -8,7 +8,7 @@ void exec_loop(buf_struct *a)
 {
 	stack_t *stack = NULL;
 	int line_n = 1, i = 0, check = 0;
-	char *status = "stack", *str1;
+	char *str1;
 
 	while (a->list_cmd[i])
 	{
