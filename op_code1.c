@@ -38,7 +38,7 @@ void sub(stack_t **stack, unsigned int line_n)
  * @stack: start of doubly linked list
  * @line_n: line number
  */
-void div(stack_t **stack, unsigned int line_n)
+void _div(stack_t **stack, unsigned int line_n)
 {
 	if (!(*stack) || !(*stack)->next)
 	{

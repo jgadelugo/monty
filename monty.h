@@ -1,13 +1,13 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <stdlib.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -87,7 +87,7 @@ void pop(stack_t **h, unsigned int line_n);
 void swap(stack_t **stack, unsigned int line_n);
 void add(stack_t **stack, unsigned int line_n);
 void sub(stack_t **stack, unsigned int line_n);
-void div(stack_t **stack, unsigned int line_n);
+void _div(stack_t **stack, unsigned int line_n);
 void mod(stack_t **stack, unsigned int line_n);
 void mul(stack_t **stack, unsigned int line_n);
 void nop(stack_t **stack, unsigned int line_n);
