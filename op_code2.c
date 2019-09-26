@@ -50,15 +50,14 @@ void pstr(stack_t **stack, unsigned int line_n)
 		printf("\n");
 	while (h)
 	{
-		if (h->n < 1 && h->n > 127)
+		/*if (h->n < 1 && h->n > 127)*/
+		if (!(h->n > 64 && h->n < 91) && !(h->n > 96 && h->n < 123))
 		{
-			memset(string, 0, 1000);
-			continue;
+			break;
 		}
 		string[i] = (char)h->n;
 		i++;
 		h = h->next;
 	}
-	string[i] = '\0';
 	printf("%s\n", string);
 }
