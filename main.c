@@ -40,6 +40,7 @@ int main(int argc, char *argv[])
 	}
 
 	read(fd, a->read_buff, 4096);
+	close(fd);
 	split_newline(a);
 	exec_loop(a);
 
