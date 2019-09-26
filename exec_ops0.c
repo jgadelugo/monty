@@ -7,38 +7,41 @@
 void exec_loop(buf_struct *a)
 {
 	stack_t *stack = NULL;
-	int line_n = 1, i = 0;
+	int line_n = 1, i = 0, check = 0;
+	char *status = "stack", *str1;
 
 	while (a->list_cmd[i])
 	{
 		split_spaces(a->list_cmd[i], a);
-		if (strcmp(a->tok_cmd[0], "push") == 0)
+		str1 = a->tok_cmd[0];
+		if (strcmp(str1, "stack") == 0 || strcmp(str1, "queue") == 0)
+			check = 1;
+		if (strcmp(str1, "push") == 0)
 		{
 			if (!a->tok_cmd[1] || digits_only(a->tok_cmd[1]) == 0)
 				a->tok_cmd[1] = "r";
 			if ((strcmp(a->tok_cmd[1], "0") != 0 && atoi(a->tok_cmd[1]) == 0))
 			{
-				if (stack)
-					free_stack(stack);
+				free_stack(stack);
 				fprintf(stderr, "L%d: usage: push integer\n", line_n);
 				exit(EXIT_FAILURE);
 			}
 			else
 				push(&stack, atoi(a->tok_cmd[1]));
-			line_n++;
 		}
+		else if (check && strcmp(status, str1) != 0)
+			queue(&stack, line_n);
 		else
 		{
-			if (get_op_func(a->tok_cmd[0]) == NULL)
+			if (get_op_func(str1) == NULL)
 			{
-				if (stack)
-					free(stack);
-				fprintf(stderr, "L%d: unknown instruction %s\n", line_n, a->tok_cmd[0]);
+				free(stack);
+				fprintf(stderr, "L%d: unknown instruction %s\n", line_n, str1);
 				exit(EXIT_FAILURE);
 			}
-			(*get_op_func(a->tok_cmd[0]))(&stack, line_n);
-			line_n++;
+			(*get_op_func(str1))(&stack, line_n);
 		}
+		line_n++;
 		i++;
 	}
 	free_stack(stack);
