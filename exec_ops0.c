@@ -7,16 +7,12 @@
 void exec_loop(buf_struct *a)
 {
 	stack_t *stack = NULL;
-	int line_n = 1, i = 0, check = 0;
-	char *str1;
+	int line_n = 1, i = 0;
 
 	while (a->list_cmd[i])
 	{
 		split_spaces(a->list_cmd[i], a);
-		str1 = a->tok_cmd[0];
-		if (strcmp(str1, "stack") == 0 || strcmp(str1, "queue") == 0)
-			check = 1;
-		if (strcmp(str1, "push") == 0)
+		if (strcmp(a->tok_cmd[0], "push") == 0)
 		{
 			if (!a->tok_cmd[1] || digits_only(a->tok_cmd[1]) == 0)
 				a->tok_cmd[1] = "r";
@@ -29,17 +25,15 @@ void exec_loop(buf_struct *a)
 			else
 				push(&stack, atoi(a->tok_cmd[1]));
 		}
-		else if (check)
-			queue(&stack, line_n);
 		else
 		{
-			if (get_op_func(str1) == NULL)
+			if (get_op_func(a->tok_cmd[0]) == NULL)
 			{
 				free(stack);
-				fprintf(stderr, "L%d: unknown instruction %s\n", line_n, str1);
+				fprintf(stderr, "L%d: unknown instruction %s\n", line_n, a->tok_cmd[0]);
 				exit(EXIT_FAILURE);
 			}
-			(*get_op_func(str1))(&stack, line_n);
+			(*get_op_func(a->tok_cmd[0]))(&stack, line_n);
 		}
 		line_n++;
 		i++;
