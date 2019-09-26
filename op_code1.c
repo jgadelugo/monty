@@ -34,7 +34,7 @@ void sub(stack_t **stack, unsigned int line_n)
 	pop(stack, line_n);
 }
 /**
- * div - adds the top two elements of the stack
+ * _div - adds the top two elements of the stack
  * @stack: start of doubly linked list
  * @line_n: line number
  */
