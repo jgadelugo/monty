@@ -88,6 +88,8 @@ void swap(stack_t **stack, unsigned int line_n);
 void nop(stack_t **stack, unsigned int line_n);
 void pchar(stack_t **stack, unsigned int line_n);
 void pstr(stack_t **stack, unsigned int line_n);
+void rotl(stack_t **stack, unsigned int line_n);
+void rotr(stack_t **stack, unsigned int line_n);
 
 /* end of monty functions */
 
