@@ -49,7 +49,7 @@ void pstr(stack_t **stack, unsigned int line_n)
 		printf("\n");
 	while (h)
 	{
-		if (!(h->n < 1) && !(h->n < 127))
+		if (!(h->n > 1) && !(h->n < 127))
 		{
 			memset(string, 0, 1000);
 			continue;
