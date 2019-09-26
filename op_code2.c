@@ -12,6 +12,17 @@ void nop(stack_t **stack, unsigned int line_n)
 }
 
 /**
+ * comment - Ignore any command after #.
+ * @stack: Unused.
+ * @line_n: Unused.
+ */
+void comment(stack_t **stack, unsigned int line_n)
+{
+	(void)*stack;
+	(void)line_n;
+}
+
+/**
  * pchar - Print the char based on ascii value.
  * @stack: beginning of linked list.
  * @line_n: line number.
@@ -51,7 +62,7 @@ void pstr(stack_t **stack, unsigned int line_n)
 	}
 	while (h)
 	{
-		if ((h->n > 90 && h->n < 97) && (h->n < 65 && h->n > 122))
+		if (h->n < 1 && h->n > 127)
 		{
 			memset(string, 0, 1000);
 			continue;
