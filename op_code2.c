@@ -12,17 +12,6 @@ void nop(stack_t **stack, unsigned int line_n)
 }
 
 /**
- * comment - Ignore any command after #.
- * @stack: Unused.
- * @line_n: Unused.
- */
-void comment(stack_t **stack, unsigned int line_n)
-{
-	(void)*stack;
-	(void)line_n;
-}
-
-/**
  * pchar - Print the char based on ascii value.
  * @stack: beginning of linked list.
  * @line_n: line number.
@@ -54,15 +43,13 @@ void pstr(stack_t **stack, unsigned int line_n)
 	stack_t *h = *stack;
 	char string[1000];
 	int i = 0;
+	(void)line_n;
 
 	if (!h)
-	{
-		fprintf(stderr, "L%d: can't pstr, stack empty\n", line_n);
-		exit(EXIT_FAILURE);
-	}
+		printf("\n");
 	while (h)
 	{
-		if (h->n < 1 && h->n > 127)
+		if (!(h->n < 1) && !(h->n < 127))
 		{
 			memset(string, 0, 1000);
 			continue;

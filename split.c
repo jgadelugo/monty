@@ -44,5 +44,7 @@ char **split_spaces(char *buff, buf_struct *a)
 	a->tok_cmd[i] = NULL;
 	if (a->tok_cmd[0] == NULL)
 		return (NULL);
+	if (strncmp(a->tok_cmd[0], "#", 1) == 0)
+		a->tok_cmd[0] = "nop";
 	return (a->tok_cmd);
 }
