@@ -85,6 +85,11 @@ void pall(stack_t **h, unsigned int line_n);
 void pint(stack_t **h, unsigned int line_n);
 void pop(stack_t **h, unsigned int line_n);
 void swap(stack_t **stack, unsigned int line_n);
+void add(stack_t **stack, unsigned int line_n);
+void sub(stack_t **stack, unsigned int line_n);
+void div(stack_t **stack, unsigned int line_n);
+void mod(stack_t **stack, unsigned int line_n);
+void mul(stack_t **stack, unsigned int line_n);
 
 /* end of monty functions */
 
