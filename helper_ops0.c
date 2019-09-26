@@ -11,6 +11,10 @@ int digits_only(char *str)
 
 	for (i = 0; str[i]; i++)
 		if (isdigit(str[i]) == 0)
+		{
+			if (str[i] == '-' && i == 0)
+				continue;
 			return (0);
+		}
 	return (1);
 }
