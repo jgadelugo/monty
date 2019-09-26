@@ -8,6 +8,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <ctype.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -77,6 +78,11 @@ void free_stack(stack_t *head);
 
 /* End of Doubly linked list functions */
 
+/* Helper functions */
+
+int digits_only(char *str);
+
+/* End of helper functions */
 
 /* monty functions */
 

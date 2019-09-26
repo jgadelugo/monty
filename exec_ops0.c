@@ -14,7 +14,7 @@ void exec_loop(buf_struct *a)
 		split_spaces(a->list_cmd[i], a);
 		if (strcmp(a->tok_cmd[0], "push") == 0)
 		{
-			if (!a->tok_cmd[1])
+			if (!a->tok_cmd[1] || !digits_only(a->tok_cmd[1]))
 				a->tok_cmd[1] = "r";
 			if ((strcmp(a->tok_cmd[1], "0") != 0 && atoi(a->tok_cmd[1]) == 0))
 			{
