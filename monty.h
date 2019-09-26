@@ -77,6 +77,11 @@ void free_stack(stack_t *head);
 
 /* End of Doubly linked list functions */
 
+/* Helper functions */
+
+int digits_only(char *str);
+
+/* End of helper functions */
 
 /* monty functions */
 
