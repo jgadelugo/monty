@@ -25,7 +25,7 @@ void pchar(stack_t **stack, unsigned int line_n)
 		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_n);
 		exit(EXIT_FAILURE);
 	}
-	if ((h->n > 90 && h->n < 97) && (h->n < 65 && h->n > 122))
+	if (!(h->n > 64 && h->n < 91) && !(h->n > 96 && h->n < 123))
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_n);
 		exit(EXIT_FAILURE);
@@ -45,11 +45,12 @@ void pstr(stack_t **stack, unsigned int line_n)
 	int i = 0;
 	(void)line_n;
 
+	memset(string, 0, 1000);
 	if (!h)
 		printf("\n");
 	while (h)
 	{
-		if (!(h->n > 1) && !(h->n < 127))
+		if (h->n < 1 && h->n > 127)
 		{
 			memset(string, 0, 1000);
 			continue;
@@ -58,5 +59,6 @@ void pstr(stack_t **stack, unsigned int line_n)
 		i++;
 		h = h->next;
 	}
+	string[i] = '\0';
 	printf("%s\n", string);
 }
