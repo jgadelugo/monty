@@ -10,7 +10,7 @@ int digits_only(char *str)
 	int i;
 
 	for (i = 0; str[i]; i++)
-		if (isdigit(str[i] == 0))
+		if (isdigit(str[i]) == 0)
 			return (0);
 	return (1);
 }
