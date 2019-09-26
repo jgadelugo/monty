@@ -61,6 +61,8 @@ void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number)
 		{"pstr", pstr},
 		{"rotl", rotl},
 		{"rotr", rotr},
+		{"queue", queue},
+		{"stack", queue},
 		{NULL, NULL}
 	};
 	int i = 0;

@@ -45,3 +45,31 @@ void rotr(stack_t **stack, unsigned int line_n)
 		*stack = last;
 	}
 }
+
+/**
+ * queue - flips the doubly linked list
+ * @stack: top of the stack - doubly linked list
+ * @line_n: line number
+ */
+void queue(stack_t **stack, unsigned int line_n)
+{
+	stack_t *flip = *stack, *hold = *stack;
+
+	if (line_n)
+		line_n = line_n;
+	if (*stack && ((*stack)->next))
+	{
+		while (1)
+		{
+			hold = flip->next;
+			flip->next = flip->prev;
+			flip->prev = hold;
+			if (hold != NULL)
+				flip = hold;
+			else
+				break;
+		}
+
+		*stack = flip;
+	}
+}
